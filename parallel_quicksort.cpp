@@ -13,7 +13,9 @@ int main(int argc, char *argv[]) {
 
     cout << "Hello parallel world from threads" << endl;  
     #pragma omp parallel num_threads(total)
-    cout << "Greetings from process " << id << "out of the total " << total << endl;  
-
+    {
+        cout << "Greetings from process " << id << " out of the total " << total << endl;  
+    }
+    // omp end parallel
   return 0;
 }
