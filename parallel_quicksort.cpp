@@ -1,5 +1,7 @@
 #include <iostream>
 #include <omp.h> 
+#include <unistd.h>
+
 using namespace std;
 
 
@@ -8,17 +10,18 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-    int id, num_of_threads;
-    // int total = omp_get_num_threads();
 
-    cout << "Hello parallel world from threads" << endl;  
+    int id, num_of_threads;
+
+    cout << "Hello parallel world from all threads" << endl;  
     #pragma omp parallel
     {
         num_of_threads = omp_get_num_threads();
         id = omp_get_thread_num();
-        cout << "Greetings from process " << id << " out of " << total << endl;  
+        usleep(5000 * id);  // to avoid race condition when printing
+        cout << "Greetings from process " << id << " out of " << num_of_threads << endl;  
     }
     cout << "Back to the sequential world." << endl;  
-    // omp end parallel
+
   return 0;
 }
