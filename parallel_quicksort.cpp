@@ -6,6 +6,6 @@ using namespace std;
 
 
 int main(int argc, char *argv[]) {
-    cout << "Hello there from " << endl;  
+    cout << "Hello parallel world from threads" << endl;  
   return 0;
 }
