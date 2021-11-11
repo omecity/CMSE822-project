@@ -27,5 +27,8 @@ int main(int argc, char **argv) {
     }
     cout << "Back to the sequential world." << endl;  
 
+    int option;
+    cout << "Enter the pivot options you want :" << endl;
+
   return 0;
 }
