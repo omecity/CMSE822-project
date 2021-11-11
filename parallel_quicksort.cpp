@@ -28,7 +28,13 @@ int main(int argc, char **argv) {
     cout << "Back to the sequential world." << endl;  
 
     int option;
-    cout << "Enter the pivot options you want :" << endl;
+    cout << "  " << endl;
+    cout << "Enter an integer between 1 and 4 to choose the pivot options you want : ";
+    cout << " 1 -- first element ";
+    cout << " 2 -- second element ";
+    cout << " 3 -- random element ";
+    cout << " 4 -- parallel prefix operation ";
+    cin >> option;
 
   return 0;
 }
