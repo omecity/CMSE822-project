@@ -31,13 +31,16 @@ int main(int argc, char **argv) {
     cout << "  " << endl;
     
 
-    cout << "Enter an integer between 1 and 4 to choose the pivot options you want : " << endl;
-    cin >> option;
+    cout << "The pivot options are as copied below : " << endl;
+    // cin >> option;
 
-    cout << " 1 -- first element " << endl;
-    cout << " 2 -- second element " << endl;
-    cout << " 3 -- random element " << endl;
-    cout << " 4 -- parallel prefix operation " << endl;
+    cout << "       1 -- first element " << endl;
+    cout << "       2 -- second element " << endl;
+    cout << "       3 -- random element " << endl;
+    cout << "       4 -- parallel prefix operation " << endl;
+
+    cout << "Enter an integer between 1 and 4 to choose the pivot options you want : " ;
+    cin >> option;
     
   return 0;
 }
