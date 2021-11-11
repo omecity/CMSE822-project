@@ -29,12 +29,15 @@ int main(int argc, char **argv) {
 
     int option;
     cout << "  " << endl;
-    cout << "Enter an integer between 1 and 4 to choose the pivot options you want : ";
-    cout << " 1 -- first element ";
-    cout << " 2 -- second element ";
-    cout << " 3 -- random element ";
-    cout << " 4 -- parallel prefix operation ";
+    
+
+    cout << "Enter an integer between 1 and 4 to choose the pivot options you want : " << endl;
     cin >> option;
 
+    cout << " 1 -- first element " << endl;
+    cout << " 2 -- second element " << endl;
+    cout << " 3 -- random element " << endl;
+    cout << " 4 -- parallel prefix operation " << endl;
+    
   return 0;
 }
