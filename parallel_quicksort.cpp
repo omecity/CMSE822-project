@@ -42,5 +42,18 @@ int main(int argc, char **argv) {
     cout << "Enter an integer between 1 and 4 to choose the pivot options you want : " ;
     cin >> option;
     
+    If (option == 1){
+
+    }
+    else if (option == 2){
+
+    }
+    else if (option == 3){
+
+    }
+    else{
+
+    }
+
   return 0;
 }
