@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
     }
     cout << "Back to the sequential world." << endl;  
 
-    int option;
+    int option, index;
     cout << "  " << endl;
     
 
@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
     // cin >> option;
 
     cout << "       1 -- first element " << endl;
-    cout << "       2 -- second element " << endl;
+    cout << "       2 -- last element " << endl;
     cout << "       3 -- random element " << endl;
     cout << "       4 -- parallel prefix operation " << endl;
 
@@ -43,16 +43,16 @@ int main(int argc, char **argv) {
     cin >> option;
     
     If (option == 1){
-
+        index = getFirstElement(arr);
     }
     else if (option == 2){
-
+        index = getLastElement(arr);
     }
     else if (option == 3){
-
+        index = getRandomElement(arr);
     }
     else{
-
+        index = getPrefixElement(arr);
     }
 
   return 0;
