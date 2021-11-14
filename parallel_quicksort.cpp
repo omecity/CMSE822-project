@@ -24,8 +24,8 @@ int main(int argc, char *argv[]) {
         cout << "Please enter a positive integer for option and array size " << endl; 
     }
 
-    option = atoi(argv[0]);
-    arr_size = atoi(argv[1]);
+    option = atoi(argv[1]);
+    arr_size = atoi(argv[2]);
 
     cout << " " << endl;
     cout << "Hello parallel world from all threads" << endl;  
