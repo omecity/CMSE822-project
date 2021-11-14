@@ -4,6 +4,11 @@
 
 // #include "parallel_quicksort.h"
 
+void getFirstElement();
+void getLastElement();
+
+
+
 using namespace std;
 
 
@@ -39,8 +44,8 @@ int main(int argc, char **argv) {
     cout << "Back to the sequential world." << endl;  
 
 
-    // getFirstElement();
-    // getLastElement();
+    getFirstElement();
+    getLastElement();
 
     int option, index;
     cout << "  " << endl;
@@ -71,4 +76,13 @@ int main(int argc, char **argv) {
     // }
 
   return 0;
+}
+
+
+void getFirstElement(){      
+   cout << "This is the first element" << endl;
+}
+
+void getLastElement(){      
+   cout << "This is the first element" << endl;
 }
