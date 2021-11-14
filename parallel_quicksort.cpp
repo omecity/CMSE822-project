@@ -6,15 +6,26 @@
 
 void getFirstElement();
 void getLastElement();
+void getRandomElement();
 
 
 using namespace std;
 
 // parallel_quicksort.cpp
 
-int main(int argc, char **argv) {
+int main(int argc, char *argv[]) {
 
+    int option, arr_size;
     double start, end, time_elapsed;
+
+    int arr[5] = {16, 2, 77, 40, 12071};
+
+    if (argc != 3){
+        cout << "Please enter a positive integer for option and array size " << endl; 
+    }
+
+    option = atoi(argv[0]);
+    arr_size = atoi(argv[1]);
 
     cout << " " << endl;
     cout << "Hello parallel world from all threads" << endl;  
@@ -44,17 +55,15 @@ int main(int argc, char **argv) {
     time_elapsed = end - start;
 
     // //print out the resulting elapsed time
-    cout << "Time for parallel computation region : "<< time_elapsed << " seconds." << endl;
+    cout << "Time for parallel computation region: "<< time_elapsed << " seconds." << endl;
     cout << "Back to the sequential world." << endl;  
 
     getFirstElement();
     getLastElement();
 
-    int option, index;
-    cout << "  " << endl;
-    
-    cout << "The pivot options are as copied below : " << endl;
-    // cin >> option;
+    // int option, index, arr_size;
+    cout << "  " << endl;    
+    cout << "The pivot options are as copied below: " << endl;
 
     // cout << "       1 -- first element " << endl;
     // cout << "       2 -- last element " << endl;
@@ -80,6 +89,12 @@ int main(int argc, char **argv) {
   return 0;
 }
 
+// print the elements of the array
+// std::cout << "arr: ";
+// std::copy(arr.begin(),arr.end(), std::ostream_iterator<int>(std::cout, ","));
+// cout << "This is the first element" << endl;
+// cout << "This is the first element" << endl;
+// cout << "This is the first element" << endl;
 
 void getFirstElement(){      
    cout << "This is the first element" << endl;
