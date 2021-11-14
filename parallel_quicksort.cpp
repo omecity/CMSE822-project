@@ -8,12 +8,9 @@ void getFirstElement();
 void getLastElement();
 
 
-
 using namespace std;
 
-
 // parallel_quicksort.cpp
-
 
 int main(int argc, char **argv) {
 
@@ -26,23 +23,29 @@ int main(int argc, char **argv) {
     #pragma omp parallel
     {
         int rank, num_of_threads;
+        // start = omp_get_wtime(); 
         num_of_threads = omp_get_num_threads();
         rank = omp_get_thread_num();
         usleep(5000 * rank);  // to avoid race condition when printing
         if (rank == 0){
-            cout << "Greetings from process " << rank << " out of " << num_of_threads << " -- I am MASTER of all" << endl;  
+            cout << "Greetings from process " << rank << " out of " << num_of_threads << " -- I am MASTER of all " << endl;  
         }
         else {
             cout << "Greetings from process " << rank << " out of " << num_of_threads << endl; 
         }
+        // end = omp_get_wtime();
+        // time_elapsed = end - start;
+
+        //print out the resulting elapsed time
+        // cout << "Time for parallel computation region : "<< time_elapsed << " seconds." << endl;
+        // cout << "Back to the sequential world." << endl;
     }
     end = omp_get_wtime();
     time_elapsed = end - start;
 
-    //print out the resulting elapsed time
+    // //print out the resulting elapsed time
     cout << "Time for parallel computation region : "<< time_elapsed << " seconds." << endl;
     cout << "Back to the sequential world." << endl;  
-
 
     getFirstElement();
     getLastElement();
@@ -50,7 +53,6 @@ int main(int argc, char **argv) {
     int option, index;
     cout << "  " << endl;
     
-
     cout << "The pivot options are as copied below : " << endl;
     // cin >> option;
 
@@ -84,5 +86,9 @@ void getFirstElement(){
 }
 
 void getLastElement(){      
-   cout << "This is the first element" << endl;
+   cout << "This is the last element" << endl;
+}
+
+void getRandomElement(){      
+   cout << "This is the random element" << endl;
 }
