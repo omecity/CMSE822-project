@@ -112,12 +112,12 @@ int getRandomElement(){
    return 0;
 }
 
-void fill_array(int arr_size){
+void fill_array(int[] arr, int arr_size){
     for (int i = 0; i < arr_size; i++)
         arr[i] = rand()%arr_size;
 }
 
-void print_array(int arr_size){
+void print_array(int[ arr, int arr_size){
     for (int i = 0; i < arr_size; i++)
         cout << "The elements of the array is/are " << arr[i] << endl;
 }
