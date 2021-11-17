@@ -8,8 +8,8 @@
 int getFirstIndex();
 int getLastIndex();
 int getRandomIndex();                                                      
-void fillArray();
-void printArray();
+void fillArray(int [], int);
+void printArray(int [], int);
 
 using namespace std;
 
@@ -28,6 +28,9 @@ int main(int argc, char *argv[]) {
     arr_size = atoi(argv[2]);
 
     int arr[arr_size];
+
+    fillArray(arr, arr_size);
+    printArray(arr, arr_size);
 
     cout << " " << endl;
     cout << "Hello parallel world from all threads" << endl;  
