@@ -117,6 +117,7 @@ int getRandomIndex(){
 }
 
 void fillArray(int arr[], int arr_size){
+    srand(time(0));
     for (int i = 0; i < arr_size; i++)
         arr[i] = rand()%arr_size;
 }
