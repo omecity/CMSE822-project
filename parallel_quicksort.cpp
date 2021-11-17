@@ -4,10 +4,11 @@
 
 // #include "parallel_quicksort.h"
 
-void getFirstElement();
-void getLastElement();
-void getRandomElement();
-
+int getFirstElement();
+int getLastElement();
+int getRandomElement();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          getRandomElement();
+void fill_array();
+void print_array();
 
 using namespace std;
 
@@ -18,7 +19,7 @@ int main(int argc, char *argv[]) {
     int option, arr_size;
     double start, end, time_elapsed;
 
-    int arr[5] = {16, 2, 77, 40, 12071};
+    int arr[arr_size];
 
     if (argc != 3){
         cout << "Please enter a positive integer for option and array size " << endl; 
@@ -96,14 +97,27 @@ int main(int argc, char *argv[]) {
 // cout << "This is the first element" << endl;
 // cout << "This is the first element" << endl;
 
-void getFirstElement(){      
+int getFirstElement(){      
    cout << "This is the first element" << endl;
+   return 0;
 }
 
-void getLastElement(){      
-   cout << "This is the last element" << endl;
+int getLastElement(){      
+   // cout << "This is the last element" << endl;
+   return 0;
 }
 
-void getRandomElement(){      
+int getRandomElement(){      
    cout << "This is the random element" << endl;
+   return 0;
+}
+
+void fill_array(int arr_size){
+    for (int i = 0; i < arr_size; i++)
+        arr[i] = rand()%arr_size;
+}
+
+void print_array(){
+    for (int i = 0; i < arr_size; i++)
+        cout << "The elements of the array is/are " << arr[i] << endl;
 }
