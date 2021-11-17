@@ -1,14 +1,15 @@
 #include <iostream>
 #include <omp.h> 
 #include <unistd.h>
+#include <ctime>
 
 // #include "parallel_quicksort.h"
 
-int getFirstElement();
-int getLastElement();
-int getRandomElement();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          getRandomElement();
-void fill_array();
-void print_array();
+int getFirstIndex();
+int getLastIndex();
+int getRandomIndex();                                                      
+void fillArray();
+void printArray();
 
 using namespace std;
 
@@ -19,14 +20,14 @@ int main(int argc, char *argv[]) {
     int option, arr_size;
     double start, end, time_elapsed;
 
-    int arr[arr_size];
-
     if (argc != 3){
         cout << "Please enter a positive integer for option and array size " << endl; 
     }
 
     option = atoi(argv[1]);
     arr_size = atoi(argv[2]);
+
+    int arr[arr_size];
 
     cout << " " << endl;
     cout << "Hello parallel world from all threads" << endl;  
@@ -59,8 +60,8 @@ int main(int argc, char *argv[]) {
     cout << "Time for parallel computation region: "<< time_elapsed << " seconds." << endl;
     cout << "Back to the sequential world." << endl;  
 
-    getFirstElement();
-    getLastElement();
+    // getFirstElement();
+    // getLastElement();
 
     // int option, index, arr_size;
     cout << "  " << endl;    
@@ -97,27 +98,27 @@ int main(int argc, char *argv[]) {
 // cout << "This is the first element" << endl;
 // cout << "This is the first element" << endl;
 
-int getFirstElement(){      
+int getFirstIndex(){      
    cout << "This is the first element" << endl;
    return 0;
 }
 
-int getLastElement(){      
+int getLastIndex(){      
    // cout << "This is the last element" << endl;
    return 0;
 }
 
-int getRandomElement(){      
+int getRandomIndex(){      
    cout << "This is the random element" << endl;
    return 0;
 }
 
-void fill_array(int[] arr, int arr_size){
+void fillArray(int arr[], int arr_size){
     for (int i = 0; i < arr_size; i++)
         arr[i] = rand()%arr_size;
 }
 
-void print_array(int[ arr, int arr_size){
+void printArray(int arr[], int arr_size){
     for (int i = 0; i < arr_size; i++)
         cout << "The elements of the array is/are " << arr[i] << endl;
 }
