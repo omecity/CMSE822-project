@@ -5,9 +5,9 @@
 
 // #include "parallel_quicksort.h"
 
-int getFirstIndex(int);
+int getFirstIndex();
 int getLastIndex(int);
-int getRandomIndex(int);                                                      
+int getRandomIndex(int);
 void fillArray(int [], int);
 void printArray(int [], int);
 
@@ -29,7 +29,16 @@ int main(int argc, char *argv[]) {
     arr_size = atoi(argv[2]);
 
     int arr[arr_size];
+    int i;
 
+    // testing the values 
+    i = getFirstIndex();
+    i = getLastIndex(arr_size);
+    i = getRandomIndex(arr_size);
+
+    cout << "The first index and element is : " << i << " and " << arr[i]<< endl;
+    cout << "The last index and element is : " << i << " and " << arr[i]<< endl;
+    cout << "The random index and element is : " << i << " and " << arr[i]<< endl;
     fillArray(arr, arr_size);
     printArray(arr, arr_size);
 
@@ -85,6 +94,7 @@ int main(int argc, char *argv[]) {
     //     index = getPrefixElement(arr);
     // }
 
+
   return 0;
 }
 
@@ -95,7 +105,7 @@ int main(int argc, char *argv[]) {
 // cout << "This is the first element" << endl;
 // cout << "This is the first element" << endl;
 
-int getFirstIndex(int arr_size){      
+int getFirstIndex(){      
    return 0;
 }
 
