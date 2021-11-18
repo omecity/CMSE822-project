@@ -31,16 +31,19 @@ int main(int argc, char *argv[]) {
     int arr[arr_size];
     int i;
 
-    // testing the values 
-    i = getFirstIndex();
-    i = getLastIndex(arr_size);
-    i = getRandomIndex(arr_size);
-
-    cout << "The first index and element is : " << i << " and " << arr[i]<< endl;
-    cout << "The last index and element is : " << i << " and " << arr[i]<< endl;
-    cout << "The random index and element is : " << i << " and " << arr[i]<< endl;
     fillArray(arr, arr_size);
     printArray(arr, arr_size);
+
+    // testing the values 
+    i = getFirstIndex();
+    cout << "The first index and element is : " << i << " and " << arr[i]<< endl;
+
+    i = getLastIndex(arr_size);
+    cout << "The last index and element is : " << i << " and " << arr[i]<< endl;
+
+    i = getRandomIndex(arr_size);
+    cout << "The random index and element is : " << i << " and " << arr[i]<< endl;
+
 
     cout << " " << endl;
     cout << "Hello parallel world from all threads" << endl;  
