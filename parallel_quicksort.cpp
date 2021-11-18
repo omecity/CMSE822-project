@@ -5,9 +5,9 @@
 
 // #include "parallel_quicksort.h"
 
-int getFirstIndex();
-int getLastIndex();
-int getRandomIndex();                                                      
+int getFirstIndex(int [], int);
+int getLastIndex(int [], int);
+int getRandomIndex(int [], int);                                                      
 void fillArray(int [], int);
 void printArray(int [], int);
 
@@ -51,10 +51,6 @@ int main(int argc, char *argv[]) {
         }
         // end = omp_get_wtime();
         // time_elapsed = end - start;
-
-        //print out the resulting elapsed time
-        // cout << "Time for parallel computation region : "<< time_elapsed << " seconds." << endl;
-        // cout << "Back to the sequential world." << endl;
     }
     end = omp_get_wtime();
     time_elapsed = end - start;
@@ -62,9 +58,6 @@ int main(int argc, char *argv[]) {
     // //print out the resulting elapsed time
     cout << "Time for parallel computation region: "<< time_elapsed << " seconds." << endl;
     cout << "Back to the sequential world." << endl;  
-
-    // getFirstElement();
-    // getLastElement();
 
     // int option, index, arr_size;
     cout << "  " << endl;    
@@ -101,19 +94,17 @@ int main(int argc, char *argv[]) {
 // cout << "This is the first element" << endl;
 // cout << "This is the first element" << endl;
 
-int getFirstIndex(){      
-   cout << "This is the first element" << endl;
+int getFirstIndex(int arr_size){      
    return 0;
 }
 
-int getLastIndex(){      
-   // cout << "This is the last element" << endl;
-   return 0;
+int getLastIndex(int arr_size){      
+   return arr_size-1;
 }
 
-int getRandomIndex(){      
-   cout << "This is the random element" << endl;
-   return 0;
+int getRandomIndex(int arr_size){      
+    srand(time(0));
+    return rand()%arr_size;
 }
 
 void fillArray(int arr[], int arr_size){
