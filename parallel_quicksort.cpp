@@ -5,9 +5,9 @@
 
 // #include "parallel_quicksort.h"
 
-int getFirstIndex(int [], int);
-int getLastIndex(int [], int);
-int getRandomIndex(int [], int);                                                      
+int getFirstIndex(int);
+int getLastIndex(int);
+int getRandomIndex(int);                                                      
 void fillArray(int [], int);
 void printArray(int [], int);
 
@@ -21,9 +21,10 @@ int main(int argc, char *argv[]) {
     double start, end, time_elapsed;
 
     if (argc != 3){
-        cout << "Please enter a positive integer for option and array size " << endl; 
+        cout << "Usage: <executable name> <pivot choice [1, 2, 3, or 4]> <array size>\n\n";
     }
 
+    // read in the choice of pivot selection strategy and array size
     option = atoi(argv[1]);
     arr_size = atoi(argv[2]);
 
