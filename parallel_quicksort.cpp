@@ -11,6 +11,8 @@ int getRandomIndex(int);
 void fillArray(int [], int);
 void printArray(int [], int);
 void quicksort(int [], int, int);
+int partition(int [], int, int, int);
+void swap (int [], int, int);
 
 
 using namespace std;
@@ -160,3 +162,9 @@ int partition(int arr[], int left, int right, int pivot){
     }
     return left;
 }
+
+void swap (int arr[], int left, int right){
+    int temp = arr[left];
+    arr[left] = arr[right];
+    arr[right] = temp;
+} 
