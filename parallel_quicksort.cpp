@@ -143,3 +143,20 @@ void quicksort(int arr[], int left, int right){
     for (int i = 0; i < arr_size; i++)
         cout << "The elements of the array is/are " << arr[i] << endl;
 }
+
+int partition(int arr[], int left, int right, int pivot){
+    while (left < right){
+        while (arr[left] < pivot){
+            left++;
+        }
+         while (arr[right] > pivot){
+            right--;
+        }
+        if (left <= right){
+            swap(arr[left],arr[right]);
+            left++;
+            right--;
+        }
+    }
+    return left;
+}
