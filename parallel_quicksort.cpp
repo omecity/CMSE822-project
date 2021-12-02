@@ -10,6 +10,8 @@ int getLastIndex(int);
 int getRandomIndex(int);
 void fillArray(int [], int);
 void printArray(int [], int);
+void quicksort(int [], int, int);
+
 
 using namespace std;
 
@@ -55,15 +57,13 @@ int main(int argc, char *argv[]) {
         // start = omp_get_wtime(); 
         num_of_threads = omp_get_num_threads();
         rank = omp_get_thread_num();
-        usleep(5000 * rank);  // to avoid race condition when printing
+        usleep(5000 * rank);        // to avoid race condition when printing
         if (rank == 0){
             cout << "Greetings from process " << rank << " out of " << num_of_threads << " -- I am MASTER of all " << endl;  
         }
         else {
             cout << "Greetings from process " << rank << " out of " << num_of_threads << endl; 
         }
-        // end = omp_get_wtime();
-        // time_elapsed = end - start;
     }
     end = omp_get_wtime();
     time_elapsed = end - start;
@@ -128,6 +128,18 @@ void fillArray(int arr[], int arr_size){
 }
 
 void printArray(int arr[], int arr_size){
+    for (int i = 0; i < arr_size; i++)
+        cout << "The elements of the array is/are " << arr[i] << endl;
+}
+
+void quicksort(int arr[], int left, int right){
+    if (left < right){
+        return;
+    }
+    int pivot = arr(left+right/2);
+    int idx = partition(arr,left,right,pivot);
+    quicksort(arr, left, right, idx-1, pivot);
+    quicksort(arr, idx, right, idx);
     for (int i = 0; i < arr_size; i++)
         cout << "The elements of the array is/are " << arr[i] << endl;
 }
