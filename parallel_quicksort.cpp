@@ -10,7 +10,7 @@ int getLastIndex(int);
 int getRandomIndex(int);
 void fillArray(int [], int);
 void printArray(int [], int);
-void quicksort(int [], int, int);
+void quicksort(int [], int, int, int);
 int partition(int [], int, int, int);
 void swap (int [], int, int);
 
@@ -134,7 +134,7 @@ void printArray(int arr[], int arr_size){
         cout << "The elements of the array is/are " << arr[i] << endl;
 }
 
-void quicksort(int arr[], int left, int right){
+void quicksort(int arr[], int left, int right, int arr_size){
     if (left < right){
         return;
     }
@@ -142,7 +142,7 @@ void quicksort(int arr[], int left, int right){
     int idx = partition(arr,left,right,pivot);
     quicksort(arr, left, right, idx-1);
     quicksort(arr, idx, right, idx+1);
-    for (int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++)
+    for (int i = 0; i < arr_size; i++)
         cout << "The elements of the array is/are " << arr[i] << endl;
 }
 
