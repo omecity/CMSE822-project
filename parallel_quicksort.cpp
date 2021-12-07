@@ -138,11 +138,11 @@ void quicksort(int arr[], int left, int right){
     if (left < right){
         return;
     }
-    int pivot = arr(left+right/2);
+    int pivot = arr[left+right/2];
     int idx = partition(arr,left,right,pivot);
-    quicksort(arr, left, right, idx-1, pivot);
-    quicksort(arr, idx, right, idx);
-    for (int i = 0; i < arr_size; i++)
+    quicksort(arr, left, right, idx-1);
+    quicksort(arr, idx, right, idx+1);
+    for (int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++)
         cout << "The elements of the array is/are " << arr[i] << endl;
 }
 
