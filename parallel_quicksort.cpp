@@ -25,20 +25,28 @@ int main(int argc, char *argv[]) {
     int option, arr_size;
     double start, end, time_elapsed;
 
+    /*
     if (argc != 3){
         cout << "Usage: <executable name> <pivot choice [1, 2, 3, or 4]> <array size>\n\n";
     }
+    */
 
     // read in the choice of pivot selection strategy and array size
-    option = atoi(argv[1]);
-    arr_size = atoi(argv[2]);
+    // option = atoi(argv[1]);
+    // arr_size = atoi(argv[2]);
 
-    int arr[arr_size];
+    int arr[6] = {5, 4, 2, 4, 3, 1};
+    // int arr[arr_size];
     int i;
 
-    fillArray(arr, arr_size);
+    arr_size = 6;
+    // fillArray(arr, arr_size);
     printArray(arr, arr_size);
 
+    quicksort(arr, 0, 5, 6);
+
+    cout << " ==================================== " << endl;
+    printArray(arr, arr_size);
     // testing the values 
     /*
     i = getFirstIndex();
@@ -54,11 +62,12 @@ int main(int argc, char *argv[]) {
     cout << " " << endl;
     cout << "Hello parallel world from all threads" << endl;  
     
+    
+    /*
     start = omp_get_wtime();
     #pragma omp parallel
     {
         int rank, num_of_threads;
-        // start = omp_get_wtime(); 
         num_of_threads = omp_get_num_threads();
         rank = omp_get_thread_num();
         usleep(5000 * rank);        // to avoid race condition when printing
@@ -75,6 +84,7 @@ int main(int argc, char *argv[]) {
     // //print out the resulting elapsed time
     cout << "Time for parallel computation region: "<< time_elapsed << " seconds." << endl;
     cout << "Back to the sequential world." << endl;  
+    */
 
     // int option, index, arr_size;
     cout << "  " << endl;    
@@ -143,8 +153,8 @@ void quicksort(int arr[], int left, int right, int arr_size){
     int pivot = arr[left+right/2];
     int idx = partition(arr,left,right,pivot);
     quicksort(arr, left, right, idx-1);
-    quicksort(arr, idx, right, idx+1);
-    for (int i = 0; i < arr_size; i++)
+    quicksort(arr, idx, idx+1, right);
+    // for (int i = 0; i < arr_size; i++)
         // cout << "The elements of the array is/are " << arr[i] << endl;
 }
 
