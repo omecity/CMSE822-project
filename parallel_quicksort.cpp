@@ -11,8 +11,8 @@ int getLastIndex(int);
 int getRandomIndex(int);
 void fillArray(int [], int);
 void printArray(int [], int);
-void quicksort(int [], int, int, int);
-int partition(int [], int, int, int);
+void quicksort(int [], int, int);
+int partition(int [], int, int);
 void swap (int [], int, int);
 
 
@@ -35,17 +35,17 @@ int main(int argc, char *argv[]) {
     // option = atoi(argv[1]);
     // arr_size = atoi(argv[2]);
 
-    int arr[6] = {5, 4, 2, 4, 3, 1};
+    int arr[8] = {5, 10, 2, 4, 3, 5, 8, 1};
     // int arr[arr_size];
     int i;
 
-    arr_size = 6;
+    arr_size = 8;
     // fillArray(arr, arr_size);
     printArray(arr, arr_size);
 
-    quicksort(arr, 0, 5, 6);
+    quicksort(arr, 0, 7);
 
-    cout << " ==================================== " << endl;
+    cout << "===================================== " << endl;
     printArray(arr, arr_size);
     // testing the values 
     /*
@@ -146,36 +146,86 @@ void printArray(int arr[], int arr_size){
         cout << "The elements of the array arr["<<i<<"] = " << arr[i] << endl;
 }
 
-void quicksort(int arr[], int left, int right, int arr_size){
+void quicksort(int arr[], int left, int right){
     if (left < right){
-        return;
+        // int pivot = arr[left+right/2];
+        // int idx = partition(arr,left,right,pivot);
+        int idx = partition(arr,left,right);
+
+        // sort the sub-arrays recursively
+        quicksort(arr, left, idx-1);
+        quicksort(arr, idx+1, right);
+        // for (int i = 0; i < arr_size; i++)
+            // cout << "The elements of the array is/are " << arr[i] << endl;
     }
-    int pivot = arr[left+right/2];
-    int idx = partition(arr,left,right,pivot);
-    quicksort(arr, left, right, idx-1);
-    quicksort(arr, idx, idx+1, right);
-    // for (int i = 0; i < arr_size; i++)
-        // cout << "The elements of the array is/are " << arr[i] << endl;
 }
 
-int partition(int arr[], int left, int right, int pivot){
-    while (left < right){
-        while (arr[left] < pivot){
-            left++;
+// int partition(int arr[], int left, int right){
+//     int pivot = arr[right];
+//     while (left < right){
+//         while (arr[left] < pivot){
+//             left++;
+//         }
+//          while (arr[right] > pivot){
+//             right--;
+//         }
+//         if (left <= right){
+//             swap(arr[left],arr[right]);
+//             left++;
+//             right--;
+//         }
+//     }
+//     return left;
+// }
+
+// // partition the array using last element as pivot
+// int partition (int arr[], int low, int high) 
+// { 
+//     int pivot = arr[high];    // pivot 
+//     int i = (low - 1);      
+//     for (int j = low; j <= high- 1; j++) 
+//     { 
+//         //if current element is smaller than pivot, increment the low element
+//         //swap elements at i and j
+//         if (arr[j] <= pivot) 
+//         { 
+//             i++;    // increment index of smaller element 
+//             swap(arr, i, j); 
+//         } 
+//     } 
+//     swap(arr,i,high); 
+//     return (i + 1); 
+// } 
+
+// public int Partition(int a[], int low, int high) {
+//    int pivot, index, i;
+//    index = low;
+//    pivot = high;
+//    for(i=low; i < high; i++) {
+//       if(a[i] < a[pivot]) {
+//          swap(&a[i], &a[index]);
+//          index++;
+//       }
+//    }
+//    swap(a[pivot], &a[index]);
+//    return index;
+// }
+
+int partition(int arr[], int start, int end) {
+    int i = start + 1;
+    int pivot = arr[start] ;            
+    for(int j = start + 1; j <= end ; j++ )  {
+        if (arr[j] < pivot) {
+                swap (arr,i,j);
+            i = i + 1;
         }
-         while (arr[right] > pivot){
-            right--;
-        }
-        if (left <= right){
-            swap(arr[left],arr[right]);
-            left++;
-            right--;
-        }
-    }
-    return left;
+   }
+   //put the pivot element in its proper place.
+   swap (arr,start,i-1) ;  //put the pivot element in its proper place.
+   return i-1;                      //return the position of the pivot
 }
 
-void swap (int arr[], int left, int right){
+void swap(int arr[], int left, int right){
     int temp = arr[left];
     arr[left] = arr[right];
     arr[right] = temp;
