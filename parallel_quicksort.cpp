@@ -3,7 +3,8 @@
 #include <unistd.h>
 #include <ctime>
 
-// #include "parallel_quicksort.h"
+// std::random_device random_device;
+// std::mt19937 random_engine(random_device());
 
 int getFirstIndex();
 int getLastIndex(int);
@@ -39,6 +40,7 @@ int main(int argc, char *argv[]) {
     printArray(arr, arr_size);
 
     // testing the values 
+    /*
     i = getFirstIndex();
     cout << "The first index and element is : " << i << " and " << arr[i]<< endl;
 
@@ -47,7 +49,7 @@ int main(int argc, char *argv[]) {
 
     i = getRandomIndex(arr_size);
     cout << "The random index and element is : " << i << " and " << arr[i]<< endl;
-
+    */
 
     cout << " " << endl;
     cout << "Hello parallel world from all threads" << endl;  
@@ -131,7 +133,7 @@ void fillArray(int arr[], int arr_size){
 
 void printArray(int arr[], int arr_size){
     for (int i = 0; i < arr_size; i++)
-        cout << "The elements of the array is/are " << arr[i] << endl;
+        cout << "The elements of the array arr["<<i<<"] = " << arr[i] << endl;
 }
 
 void quicksort(int arr[], int left, int right, int arr_size){
@@ -143,7 +145,7 @@ void quicksort(int arr[], int left, int right, int arr_size){
     quicksort(arr, left, right, idx-1);
     quicksort(arr, idx, right, idx+1);
     for (int i = 0; i < arr_size; i++)
-        cout << "The elements of the array is/are " << arr[i] << endl;
+        // cout << "The elements of the array is/are " << arr[i] << endl;
 }
 
 int partition(int arr[], int left, int right, int pivot){
